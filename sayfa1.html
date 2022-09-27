@@ -60,14 +60,19 @@
          }
 
         for(let sayac=0; sayac<toplamKisi; sayac++)
-    {
-       let yeniEleman = document.createElement("input");
-       yeniEleman.placeholder = ("Ad Soyad")
-       document.querySelector("#kisilistesi").appendChild(yeniEleman)
+       {
+            let yeniEleman = document.createElement("input");
+            yeniEleman.placeholder = ("Ad Soyad")
 
-    }
+            let yeniParagraf = document.createElement('p');
+            yeniParagraf.textContent = (1+sayac) + ".kisi"
 
-    });
+            document.querySelector('#kisilistesi').appendChild(yeniParagraf)
+            document.querySelector("#kisilistesi").appendChild(yeniEleman)
+
+        }
+
+       });
     
    
 
