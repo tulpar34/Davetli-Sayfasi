@@ -34,12 +34,14 @@
         //Burada eski inputların silinmesi gerek
 
         let kisiInputlar = document.querySelectorAll('#kisilistesi > input');
+        let kisiParagraflar = document.querySelectorAll('#kisilistesi > p');
 
         if(kisiInputlar.length > 0) {
             // demek kişi listesi içinde önceden inputlar mevcut
 
             for(let sira = 0; sira<kisiInputlar.length; sira++) {
                 kisiInputlar[sira].remove()
+                kisiParagraflar[sira].remove()
             }
         }
 
