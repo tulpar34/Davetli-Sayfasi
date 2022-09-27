@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa1</title>
+
+    <style>
+        input{
+            display: block;
+            margin:5px 0;
+        }
+    </style>
+</head>
+<body>
+    
+<h1>Sticker Sipariş Sayfası</h1>
+<h2>Lütfen Davete Katılacak Kişi Sayısını Giriniz</h2>
+<input type="text" id="kisisayisi">
+<button id="btndevam">Devam</button>
+
+<div id="kisilistesi"></div>
+
+
+<script>
+    let devamButonu = document.querySelector('#btndevam');
+    devamButonu.addEventListener('click', function() {
+    
+        // devam botonu tiklandiğinda bu kodlar çalışacak
+      
+        for(let sayac=0; sayac<3; sayac++)
+    {
+       let yeniEleman = document.createElement("input");
+       yeniEleman.placeholder = ("Ad Soyad")
+       document.querySelector("#kisilistesi").appendChild(yeniEleman)
+
+    }
+
+    });
+    
+   
+
+</script>
+</body>
+</html>
