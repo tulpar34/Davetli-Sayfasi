@@ -45,9 +45,19 @@
 
         let toplamKisi = document.querySelector('#kisisayisi').value;
 
-        //inputların içerisine yazdiğimiz değer her zaman string dir..5 bile yazsak o '5 dir'
+        //inputların içerisine yazdiğimiz değer her zaman string dir..5 bile yazsak o '5' dir
 
-         toplamKisi = parseInt(toplamKisi);
+         toplamKisi = parseInt(toplamKisi) // inputa girilen bilgi number a çevrildi
+
+         // Girilen veriler için kontroller oluşturma
+         /*mesela davetli sayisini 34234324324 gibi çok büyük rakamlar girdiğimizde tarayıcı her sekme için  ram de belirli bir alan ayırıyor bunu aştığı için bir şeyler ters gitti gibi bir uyarı veriyor işlemi yapmıyor bunun için girilen davetli sayısına bir sınırlama getirmemiz gerek */
+
+         if(toplamKisi > 1000) {
+            alert("En fazla 1000 kişi girilebilir")
+            //return yazıp geri döndürüyoruz ki aşağıdaki döngü çalışmasın tekrar onu atlayıp fonksiyonun dışından bir şey varsa akışa devam ediyor
+            return
+
+         }
 
         for(let sayac=0; sayac<toplamKisi; sayac++)
     {
