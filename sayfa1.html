@@ -26,10 +26,30 @@
 <script>
     let devamButonu = document.querySelector('#btndevam');
     devamButonu.addEventListener('click', function() {
+
+        //location.reload()  sayfa yenilemesi yapar refresh işimizi görmedi
     
         // devam botonu tiklandiğinda bu kodlar çalışacak
-      
-        for(let sayac=0; sayac<3; sayac++)
+
+        //Burada eski inputların silinmesi gerek
+
+        let kisiInputlar = document.querySelectorAll('#kisilistesi > input');
+
+        if(kisiInputlar.length > 0) {
+            // demek kişi listesi içinde önceden inputlar mevcut
+
+            for(let sira = 0; sira<kisiInputlar.length; sira++) {
+                kisiInputlar[sira].remove()
+            }
+        }
+
+        let toplamKisi = document.querySelector('#kisisayisi').value;
+
+        //inputların içerisine yazdiğimiz değer her zaman string dir..5 bile yazsak o '5 dir'
+
+         toplamKisi = parseInt(toplamKisi);
+
+        for(let sayac=0; sayac<toplamKisi; sayac++)
     {
        let yeniEleman = document.createElement("input");
        yeniEleman.placeholder = ("Ad Soyad")
