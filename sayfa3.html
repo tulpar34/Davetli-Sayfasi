@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sayfa3</title>
+    <style>
+        div.kutu{
+            width: 50px;
+            height: 50px;
+            margin:1rem;
+        }
+        #kutu1{
+            background: green;
+        }
+        #kutu2{
+            background: red;
+        }
+        #kutu3{
+            background: purple;
+        }
+    </style>
+</head>
+<body>
+    <div class="kutu" id="kutu1">1</div>
+    <div class="kutu" id="kutu2">2</div>
+    <div class="kutu" id="kutu3">3</div>
+    
+    <div>
+        Yeşiller:   <span id="birler">0</span>
+        Kırmızılar: <span id="ikiler">0</span>
+        Morlar:     <span id="ucler">0</span>
+    </div>
+    <script>
+   
+       const veri = []
+
+       
+
+       let kutular = document.querySelectorAll('div.kutu')
+
+       for(let sayac=0; sayac<kutular.length; sayac++) {// kutu sayisi kadar tekrar çalışır
+
+        kutular[sayac].addEventListener('click',function(e) {
+
+        // alert(e.currentTarget.textContent) // e.currentTarget tiklanan elemanı seçiyor
+        veri.push(parseInt(e.currentTarget.textContent)) // veri dizisine eleman ekledik
+        
+       let yesilSayisi = 0;
+       let kirmiziSayisi = 0;
+       let morSayisi = 0;
+    // veri dizisindeki eleman sayisi kadar döngü
+     for(let sayac = 0; sayac<veri.length; sayac++){
+
+         if(veri[sayac] === 1) yesilSayisi++ 
+         if(veri[sayac] === 2) kirmiziSayisi++ 
+         if(veri[sayac] === 3) morSayisi++
+     }
+          document.querySelector('#birler').textContent= yesilSayisi 
+          document.querySelector('#ikiler').textContent= kirmiziSayisi 
+          document.querySelector('#ucler').textContent= morSayisi 
+        })
+       }
+
+    </script>
+</body>
+</html>
