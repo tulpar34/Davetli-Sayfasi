@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayfa2</title>
+</head>
+<body>
+    <h1>Bisikler Kiralama</h1>
+    <form>
+    <div>
+        <label>Bisiklet No:</label>
+        <input type="number" id="bisikletNo">
+    </div>
+    <div>
+        <label>Gün Sayısı:</label>
+        <input id="gunSayisi" type="number" id="">
+    </div>
+     <button id="btnHesapla">Hesapla</button>
+    </form>
+
+   <p id="tutarParagraf"></p>
+    <script>
+
+        const veri = [
+       
+        {no:12, gunFiyat: 50},
+        {no:25, gunFiyat: 75},
+        {no:36, gunFiyat: 100}    
+
+        ]
+
+      document.querySelector('#btnHesapla').addEventListener('click', function(e) {//fonksiyoun başlama an'ı
+       
+       // buton tıklandığında olacaklar
+
+      e.preventDefault();//buton tıklandığında sayfayı refresh etmeyi engellemelk için
+
+      let bisikletNo = parseInt(document.querySelector('#bisikletNo').value)
+       //parseint in içerisine aldık sebep inputa girilen değer string olarak geliyordu ya bunu numbera çevirdik hatırla
+
+    let bisikletObjesi = null
+
+    // Aşağıdaki döngüde veri içerisindeki eleman sayisi kadar if sorgusu yapıyoruz
+    for(sayac=0; sayac < veri.length; sayac++) {
+      
+        if(veri[sayac].no === bisikletNo) {
+        
+            bisikletObjesi = veri[sayac];
+            break;
+        }
+    }
+        // yukarıdaki if bisikler no su var ya onlardan istediğimizi yakalayıp döngüden çıkıyoruz
+
+       if(bisikletObjesi !== null) { //bisikleti bulduk demektir
+         // Bisikler fiyat hesaplaması yapacağız
+
+         let gunSayisiDegeri = parseInt( document.querySelector('#gunSayisi').value)
+         let tutar = gunSayisiDegeri * bisikletObjesi.gunFiyat
+         
+         document.querySelector('#tutarParagraf').innerHTML = "Tutar: " +tutar + "TL"
+         //document.querySelector('#tutarParagraf').innerHTML = `Tutar: ${tutar}TL` şeklinde de yazabilirdik..eğer ekleyeceimiz içerikte html etikeri yoksa textContent varsa innerhtml daha mantıklı olar
+       } 
+       
+       else{
+        document.querySelector('#tutarParagraf').innerHTML = "";
+        setTimeout(function() {alert('Bisiklet Bulunamadı')}, 500) }
+            
+        
+      });
+
+
+    </script>
+
+    <!-- Not: Form etiketlerinin içerisindeki bir buton tıklanırsa sayfa refresh olur.. buna js dilinde handle etmek deniyor -->
+</body>
+</html>
