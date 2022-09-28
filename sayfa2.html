@@ -59,8 +59,10 @@
          let gunSayisiDegeri = parseInt( document.querySelector('#gunSayisi').value)
          let tutar = gunSayisiDegeri * bisikletObjesi.gunFiyat
          
-         document.querySelector('#tutarParagraf').innerHTML = "Tutar: " +tutar + "TL"
-         //document.querySelector('#tutarParagraf').innerHTML = `Tutar: ${tutar}TL` şeklinde de yazabilirdik..eğer ekleyeceimiz içerikte html etikeri yoksa textContent varsa innerhtml daha mantıklı olar
+        //  document.querySelector('#tutarParagraf').innerHTML = "Tutar: " +tutar + "TL"
+          document.querySelector('#tutarParagraf').innerHTML = `Tutar: ${tutar}TL` 
+          
+        //   şeklinde de yazabilirdik..eğer ekleyeceimiz içerikte html etikeri yoksa textContent varsa innerhtml daha mantıklı olar
        } 
        
        else{
